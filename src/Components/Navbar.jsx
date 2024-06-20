@@ -23,7 +23,7 @@ const Navbar = () => {
       <Link to={routes.favoritos}>
         <h4>Favoritos</h4>
       </Link>
-      <button onClick={() => dispatch({type: "TOGGLE_THEME"})}>🌙</button>
+      <button onClick={() => dispatch({type: "TOGGLE_THEME"})} className='dark'>🌙</button>
     </nav>
   )
 }

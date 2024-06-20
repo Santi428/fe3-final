@@ -7,6 +7,7 @@ export const initialState = {
   dark: false
 }
 
+
 const lsFavs = JSON.parse(localStorage.getItem('fav'))
 
 if(lsFavs != null) initialState.fav = lsFavs
@@ -20,10 +21,12 @@ const reducer = (state, action) => {
     case "ADD_FAV":
       return {...state, fav:[...state.fav, action.payload]}
     case "REMOVE_FAVS":
-      const favFiltrados = state.fav.filter((i) => i.id !== action.payload )
+      const favFiltrados = state.fav.filter((i) => i.id !== action.payload)
       return {...state, fav: favFiltrados}
+    case "REMOVE_ALL_FAVS":
+      return ""
     case "TOGGLE_THEME":
-      return {...state, dark: !dark}
+      return {...state, dark: !state.dark}
     default:
       throw new Error()
   }
@@ -34,6 +37,7 @@ export const ContextProvider = ({ children }) => {
   const url = 'https://jsonplaceholder.typicode.com/users'
 
   const [state, dispatch] = useReducer(reducer, initialState)
+
 
   useEffect(() => {
     localStorage.setItem('fav', JSON.stringify(state.fav))
