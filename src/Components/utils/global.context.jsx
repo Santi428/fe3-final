@@ -8,6 +8,7 @@ export const initialState = {
 }
 
 
+
 const lsFavs = JSON.parse(localStorage.getItem('fav'))
 
 if(lsFavs != null) initialState.fav = lsFavs
