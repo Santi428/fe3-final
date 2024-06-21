@@ -8,11 +8,15 @@ import Favs from "./Routes/Favs"
 import Detail from "./Routes/Detail"
 import NotFound from "./Components/NotFound";
 import { routes } from "./Components/utils/routes";
+import { useContextGlobal } from "./Components/utils/global.context";
 
 
 function App() {
+
+  const {state} = useContextGlobal()
+
   return (
-      <div className="App">
+      <div className={state.dark ? "dark": ""}>
           <Navbar/>
           <Routes>
             <Route path={routes.home} element={<Home />}/>

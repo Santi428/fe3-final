@@ -24,7 +24,7 @@ const reducer = (state, action) => {
       const favFiltrados = state.fav.filter((i) => i.id !== action.payload)
       return {...state, fav: favFiltrados}
     case "REMOVE_ALL_FAVS":
-      return ""
+      return {...state, fav: []}
     case "TOGGLE_THEME":
       return {...state, dark: !state.dark}
     default:

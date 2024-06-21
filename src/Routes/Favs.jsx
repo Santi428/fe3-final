@@ -6,13 +6,15 @@ import { useContextGlobal } from "../Components/utils/global.context";
 
 const Favs = () => {
 
+
+  
   let favs = JSON.parse(localStorage.getItem('fav'))
 
   if(favs == null) favs = []
 
   const {dispatch} = useContextGlobal()
 
-
+  
   return (
     <>
       <h1>Dentists Favs</h1>
@@ -22,11 +24,11 @@ const Favs = () => {
 
         {favs.map((doc) => (
           <Card name={doc.name} username={doc.username} id={doc.id} key={doc.id}>
-            <button onClick={() => dispatch({type: "REMOVE_FAVS", payload: doc.id})} className="favButton">🚫</button>
+            <button onClick={() => dispatch({type: "REMOVE_FAVS", payload: doc.id})} className="favButton">❌</button>
           </Card>
         ))}
-
       </div>
+      <button onClick={() => dispatch({type: "REMOVE_ALL_FAVS"})} className="favButton">Eliminar todos ❌</button>
     </>
   );
 };

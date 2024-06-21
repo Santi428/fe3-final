@@ -1,8 +1,12 @@
 import React, { useState } from "react";
+import { useContextGlobal } from "./utils/global.context";
 
 
 const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
+
+  const {state} = useContextGlobal()
+
   const [usuario, setUsuario] = useState({})
 
   const [showNombre, setShowNombre] = useState(false)
@@ -23,6 +27,8 @@ const Form = () => {
       setShowError(true)
     }
   } 
+
+  
 
   return (
     <div>
