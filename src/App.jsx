@@ -10,7 +10,6 @@ import NotFound from "./Components/NotFound";
 import { routes } from "./Components/utils/routes";
 import { useContextGlobal } from "./Components/utils/global.context";
 
-
 function App() {
 
   const {state} = useContextGlobal()

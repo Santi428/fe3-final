@@ -1,5 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from "react";
+import Swal from 'sweetalert2'
+
 
 export const initialState = {
   data: [],
@@ -20,6 +22,13 @@ const reducer = (state, action) => {
     case "GET_DOC":
       return {...state, data: action.payload}
     case "ADD_FAV":
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Doctor agregado a favoritos!",
+        showConfirmButton: false,
+        timer: 1500
+      });
       return {...state, fav:[...state.fav, action.payload]}
     case "REMOVE_FAVS":
       const favFiltrados = state.fav.filter((i) => i.id !== action.payload)

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useContextGlobal } from "./utils/global.context";
-
+import { ToastContainer,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
@@ -23,6 +24,16 @@ const Form = () => {
     setShowNombre(false)
     if(nombreRegex.test(usuario.nombreYApellido) && emailRegex.test(usuario.email)){
       setShowNombre(true)
+      toast('Datos ingresados correctamente', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: state.dark ? "dark": "light",
+        });
     } else {
       setShowError(true)
     }
